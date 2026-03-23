@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { cn } from '@/lib/utils'
+import Image from 'next/image'
 import InteractiveGrid from '@/components/ui/InteractiveGrid'
 
 const cards = [
@@ -65,9 +65,11 @@ export default function Philosophy() {
 
                             {/* Visual / Image Area */}
                             <div className="my-8">
-                                <img 
+                                <Image 
                                     src={card.image} 
                                     alt={card.title} 
+                                    width={120}
+                                    height={120}
                                     className="w-[120px] h-[120px] object-contain"
                                 />
                             </div>

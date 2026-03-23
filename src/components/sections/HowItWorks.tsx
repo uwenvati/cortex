@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 const steps = [
     {
@@ -183,10 +184,12 @@ export default function HowItWorks() {
 
                                         {/* Image Visual Area */}
                                         <div className="flex-1 min-h-[160px] w-full mb-10 relative overflow-hidden bg-[#e6e6e6]">
-                                            <img
+                                            <Image
                                                 src={step.image}
                                                 alt={step.title}
-                                                className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                                                fill
+                                                sizes="(max-width: 768px) 85vw, 360px"
+                                                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
                                             />
                                             {/* Inner frame styling */}
                                             <div className="absolute inset-0 border border-black/5 pointer-events-none" />

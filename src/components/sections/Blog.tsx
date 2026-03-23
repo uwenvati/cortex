@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 const blogPosts = [
     {
@@ -92,7 +93,7 @@ export default function Blog() {
                     {/* Left Column: Image Cards (approx 65% -> col-span-8) */}
                     <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8 h-fit">
                         <AnimatePresence mode="popLayout">
-                            {visiblePosts.map((post, i) => {
+                            {visiblePosts.map((post) => {
                                 const isFeatured = post.id === activeFeaturedId
                                 
                                 return (
@@ -118,9 +119,11 @@ export default function Blog() {
                                                 isFeatured ? "rounded-sm" : "rounded-none"
                                             )}
                                         >
-                                            <img 
+                                            <Image 
                                                 src={post.image} 
                                                 alt={post.title} 
+                                                fill
+                                                sizes="(max-width: 768px) 100vw, 50vw"
                                                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                                             />
                                             
@@ -186,7 +189,7 @@ export default function Blog() {
                         
                         {/* List Items (Permanent Navigation) */}
                         <div className="flex flex-col w-full border-t border-[#e5e5e5]">
-                            {blogPosts.map((post, i) => {
+                            {blogPosts.map((post) => {
                                 const isActive = post.id === activeFeaturedId
                                 return (
                                     <button

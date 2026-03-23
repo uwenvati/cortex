@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import InteractiveGrid from '@/components/ui/InteractiveGrid'
 
@@ -98,9 +99,11 @@ export default function Testimonial() {
                                     {/* Logo / Triangle Placeholder */}
                                     <div className="mb-10 flex items-center justify-center">
                                         {activeT.logo ? (
-                                            <img 
+                                            <Image 
                                                 src={activeT.logo} 
                                                 alt={`${activeT.org} logo`} 
+                                                width={120}
+                                                height={32}
                                                 className="h-[32px] object-contain" 
                                             />
                                         ) : (

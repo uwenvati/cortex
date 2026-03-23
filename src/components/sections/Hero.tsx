@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, Variants } from 'framer-motion'
-import InteractiveGrid from '@/components/ui/InteractiveGrid'
+import Image from 'next/image'
 
 const features = [
     {
@@ -107,9 +107,11 @@ export default function Hero() {
                         >
                             {/* Hover Image Background */}
                             <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
-                                <img
+                                <Image
                                     src={feat.image}
                                     alt={feat.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
                                 />
                                 {/* Dark gradient overlay so white text is legible on hover */}
